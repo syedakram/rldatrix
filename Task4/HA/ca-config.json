@@ -1,0 +1,58 @@
+{
+  "signing": {
+    "default": {
+      "expiry": "87600h"
+    },
+    "profiles": {
+      "kubernetes": {
+        "usages": [
+            "signing",
+            "key encipherment",
+            "server auth",
+            "client auth"
+        ],
+        "expiry": "87600h"
+      }
+    }
+  }
+}
+vi ca-csr.json
+{
+  "CN": "kubernetes",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "ST": "TX",
+      "L": "dallas",
+      "O": "k8s",
+      "OU": "System"
+    }
+  ]
+}
+vi etcd-csr.json
+{
+      "CN": "etcd",
+  "hosts": [
+    "127.0.0.1",
+    "192.168.100.10",
+    "192.168.100.20",
+    "192.168.100.30"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "ST": "TX",
+      "L": "dallas",
+      "O": "k8s",
+      "OU": "System"
+    }
+  ]
+}

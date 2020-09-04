@@ -1,0 +1,22 @@
+
+
+{
+
+	"name":"Syed Ali",
+	"qualification":"MCA",
+	"Age":41,
+	"Gender":"Male",
+	"Nationality":"Indian",
+	"Hobbies":{
+		"hobbies1":"sports",
+		"hobbies2":"Listening Music"
+		
+	},
+	"Education":{
+		"name":"Master in Computer Application",
+		"year":2005
+	},
+	"Experience":{
+		"totalexperience":"12 Years"
+	}
+}

@@ -1,0 +1,22 @@
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+api:
+  advertiseAddress: 192.168.100.10
+etcd:
+  endpoints:
+  - https://192.168.100.10:2379
+  - https://192.168.100.20:2379
+  - https://192.168.100.30:2379
+  caFile: /etc/etcd/ssl/ca.pem
+  certFile: /etc/etcd/ssl/etcd.pem
+  keyFile: /etc/etcd/ssl/etcd-key.pem
+networking:
+  podSubnet: 10.244.0.0/16
+apiServerCertSANs:
+- 192.168.100.10
+- 192.168.100.20
+- 192.168.100.30
+- 192.168.100.60
+apiServerExtraArgs:
+  endpoint-reconciler-type: lease
+

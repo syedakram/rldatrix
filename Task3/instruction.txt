@@ -1,0 +1,4 @@
+
+url -- http://192.168.100.191:8090/api/v1/profile/
+
+change IP according to your network IP

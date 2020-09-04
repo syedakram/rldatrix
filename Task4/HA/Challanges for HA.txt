@@ -1,0 +1,39 @@
+Challanges
+
+Each server has at least 2 CPU/vCPU cours, 4GB RAM and 10GB disk space.
+All servers must have Internet access in order to download software packages.
+Operating System on them is CentOS7 with root user enabled.
+
+1.Install and configure Docker for all nodes
+2.Deploy a HA Kubernetes Cluster with kubeadm - Install kubeadm, kubectl and kubelet
+3.Setting Up Kubernetes Cluster
+4.Generating Master Configuration Files  - 
+We generate one set of configuration files on Master01(192.168.100.10) and copy them onto all Master nodes.
+
+5.Setting Up ETCD Cluster
+Create the certificate folder
+mkdir -p /etc/etcd/ssl
+Create the etcd data director
+mkdir -p /var/lib/etcd
+scp -rp 192.168.100.10:/opt/ssl/*.pem /etc/etcd/ssl/
+Create file /etc/systemd/system/etcd.service
+
+
+6.Install Keepalived on All Master Nodes for HA Proxy
+On Master01
+Install keepalived
+Create keepalived configu file /etc/keepalived/keepalived.conf 
+Start keepalived
+systemctl daemon-reload && systemctl enable keepalived && systemctl restart keepalived
+do the same stpes to all 3 master node.
+
+
+7.kubeadm init --config kubeadm-config.yaml in All nodes
+Initiating Master Cluster
+On Master01
+Create file kubeadm-config.yaml
+kubeadm init --config kubeadm-config.yaml
+
+Configure Kuberctl on All Master Nodes
+ mkdir -p /root/.kube
+# cp -i /etc/kubernetes/admin.conf /root/.kube/config
